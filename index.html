@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Importamos la versión más reciente de TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+
+    <!-- Estilos de bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <title> Clasificación de Imágenes y Transferencia de Conocimiento</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">TensorFlow.js</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/montycode/tensorflow_js">Github</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 80px;">
+        <div class="row align-items-center my-5">
+            <div class="col-lg-4">
+                <img class="img-fluid rounded mb-4 mb-lg-0" id="img" width="300" height="300" crossorigin
+                    src="https://picsum.photos/200/300?random=3243" />
+            </div>
+            <div class="col-lg-8">
+                <h1 class="font-weight-light">Modelo de identificación de imágenes</h1>
+                <p>
+                <div id="descripcion_imagen"></div>
+                </p>
+                <a class="btn btn-primary" id="cambiaImagen" onclick="cambiarImagen();">Cambiar
+                    imagen</a>
+            </div>
+        </div>
+        <div class="row align-items-center my-5">
+            <div class="col-lg-4">
+                <video class="img-fluid rounded mb-4 mb-lg-0" autoplay playsinline muted id="webcam" width="400"
+                    height="400"></video>
+            </div>
+            <div class="col-lg-8">
+                <h1 class="font-weight-light">Modelo de identificación de imágenes por cámara</h1>
+                <p>
+                <div id="console"></div>
+                </p>
+                <p>
+                <div id="console2"></div>
+                </p>
+                <button class="btn btn-primary" id="clase-a" onclick="addExample(1)">Control</button>
+                <button class="btn btn-primary" id="clase-b" onclick="addExample(2)">Reloj</button>
+                <button class="btn btn-primary" id="clase-c" onclick="addExample(3)">Omar</button>
+                <button class="btn btn-primary" id="clase-d" onclick="addExample(4)">OK</button>
+                <button class="btn btn-primary" id="clase-e" onclick="addExample(5)">Rock</button>
+            </div>
+        </div>
+        <div class="row align-items-center my-5">
+            <div class="col">
+                <button class="btn btn-outline-success" id="saveKnn" onclick="saveKnn();">Almacenar
+                    configuración</button>
+                <button class="btn btn-outline-primary" id="loadKnn" onclick="loadKnn();">Recuperar
+                    configuración</button>
+            </div>
+        </div>
+    </div>
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Omar Montoya - 2020</p>
+        </div>
+    </footer>
+    <script src="script.js?v=151"></script>
+</body>
+
+</html>
