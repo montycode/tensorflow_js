@@ -38,20 +38,20 @@ async function app() {
             result2 = {};
         }
 
-        const classes = ["Untrained", "Control", "Reloj" , "Omar", "OK","Rock"]
+        const classes = ["Sin Entrenar", "Control", "Reloj" , "Omar", "OK","Rock"]
 
         document.getElementById('console').innerText = `
-        prediction: ${result[0].className}\n
-        probability: ${result[0].probability}
+        Predicción: ${result[0].className}\n
+        Probabilidad: ${result[0].probability}
         `;
 
         try {
             document.getElementById("console2").innerText = `
-            prediction: ${classes[result2.label]}\n
-            probability: ${result2.confidences[result2.label]}
+            Predicción: ${classes[result2.label]}\n
+            Probabilidad: ${result2.confidences[result2.label]}
             `;
         } catch (error) {
-            document.getElementById("console2").innerText="Untrained";
+            document.getElementById("console2").innerText="Sin Entrenar";
         }
 
         // Desecha el tensor para liberar la memoria.
@@ -71,8 +71,8 @@ img.onload = async function() {
 }
 
 async function cambiarImagen() {
-    count =count + 1;
-    imgEl.src="https://picsum.photos/200/300?random=" + count;
+    count = count + 1;
+    imgEl.src = "https://picsum.photos/200/300?random=" + count;
     descEl.innerHTM = "";
 }
 
